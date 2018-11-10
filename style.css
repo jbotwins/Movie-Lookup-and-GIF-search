@@ -23,3 +23,19 @@ form input {grid-column: 3;}
 form button {grid-column: 4;}
 
 /* GIFY */
+
+.RelatedGifs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.RelatedGifs-item {
+  width: 100%;
+}
+
+@media (min-width: 520px) {
+  .RelatedGifs-item {
+    margin: --standard-gap;
+    width: calc(100% / 3);
+  }
+}
