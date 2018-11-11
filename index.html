@@ -6,19 +6,22 @@
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
 
 <body>
   <header>
-    <h1>Movie Filterer</h1>
+    <h1>Movie Filterer and GIF Finder</h1>
   </header>
   <section id="search">
     <form>
-      <label class="label-title">Movie Title:</label>
+      <label class="label-title">Search for a specific movie title:</label>
       <input placeholder="i.e. Casablanca" id="movie-search" />
-      <button onCLick="findMovie()">Find Movie</button>
+      <button onCLick="event.preventDefault(); findMovie()">Find Movie</button>
+      <button onCLick="event.preventDefault(); getGifs()">Get GIFS</button>
+      <button onCLick="event.preventDefault(); getGifs(); getMovie()">Find Movie and Get GIFS</button>
     </form>
-      <hr>
+    <hr>
   </section>
   <section id="movie-summary">
     <h1>Movie Search Result</h1>
@@ -30,12 +33,8 @@
       <div class="RelatedGifs-item">
         <img src="https://media2.giphy.com/media/3nBYBellinMSA/giphy.gif" alt="Bambi GIF">
       </div>
-      <div class="RelatedGifs-item">
-        <img src="https://media2.giphy.com/media/8p5mXt9wKFTs4/giphy.gif" alt="Fantasia GIF">
-      </div>
     </div>
   </section>
-  <script src="main.js"></script>
 </body>
 
 </html>
