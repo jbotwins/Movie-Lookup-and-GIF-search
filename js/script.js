@@ -57,7 +57,7 @@ function getMovie() {
   fetch(fetchMovieURL)
     .then(response => response.json())
     .then(data => {
-      //  console.log(data);
+        console.log(data);
       movieState.data = data;
       //    console.log(movieState.data);
       let output = document.querySelector('#movie-summary');
