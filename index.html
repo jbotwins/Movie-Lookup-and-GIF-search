@@ -14,7 +14,13 @@
   </header>
   <section id="search">
     <form>
-      <label class="label-title">Search for a specific movie title:<br />Try using: "Only Yesterday"</label>
+      <label class="label-title">Search for a specific movie title:<br />Try using:<ul style="list-style:none;">
+          <li>Only Yesterday</li>
+          <li>My Neighbor Totoro</li>
+          <li>My Neighbors the Yamadas</li>
+          <li>Ponyo</li>
+          <li>Pom Poko</li>
+        </ul></label>
       <input placeholder="i.e. Casablanca" id="movie-search" />
       <button onCLick="event.preventDefault(); getMovie()">Find Movie</button>
       <button onCLick="event.preventDefault(); getGifs()">Get GIFS</button>
