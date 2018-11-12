@@ -11,28 +11,41 @@ function getGifs() {
     let gifSection = document.querySelector('.RelatedGifs');
     //    console.log(gifSection);
     gifSection.innerHTML = "";
-    //    console.log(gifSection);
-    //      let fetchGifsUrl = "https://api.giphy.com/v1/gifs/search?api_key=CNW8AUft8YEVatWrmORrCt52xAjHrIOT&q=" + movieTitle + "&limit=" + step;
     let fetchGifsUrl = "https://api.giphy.com/v1/gifs/search?api_key=CNW8AUft8YEVatWrmORrCt52xAjHrIOT&q=" + movieTitle + "&limit=10";
     console.log(fetchGifsUrl);
     console.log(gifSection);
-    let newGif = document.createElement('img');
     fetch(fetchGifsUrl)
       .then(function(response) {
         return response.json();
       })
       .then(function(myJson) {
         console.log(myJson.data);
-        console.log(myJson.data.length);
-
-        for (let gif of myJson.data) {
-          let image = document.createElement('img');
-          console.log(gif);
-          // For now just making them all the same GIF... for Challenge 4 we
-          // will make it each GIF we get back from the API
-          image.src = gif.url;
-          gifSection.appendChild(image);
+        //    console.log(myJson.data.length);
+        for (let i = 0; i < myJson.data.length; i++) {
+          let gifURL = myJson.data[i].url;
+          let gifSrc = myJson.data[i].images.preview_gif.url;
+          //  console.log(gifSrc);
+          let newDiv = document.createElement('div');
+          newDiv.classList.add('RelatedGifs-item');
+          let newAnchor = document.createElement('a');
+          newAnchor.setAttribute('href', gifURL);
+          newAnchor.setAttribute('target', '_blank');
+          let newGif = document.createElement('img');
+          newGif.setAttribute('src', gifSrc);
+          newAnchor.append(newGif);
+          newDiv.append(newAnchor);
+          //  console.log(newDiv);
+          gifSection.append(newDiv);
+          //.appendChild(image);
         }
+        // for (let gif of myJson.data) {
+        //   let image = document.createElement('img');
+        //   console.log(gif);
+        //   // For now just making them all the same GIF... for Challenge 4 we
+        //   // will make it each GIF we get back from the API
+        //   image.src = gif.url;
+        //   gifSection.appendChild(image);
+        // }
 
       });
 
